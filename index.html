@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design Luxe — Smart Window Blinds & Modern Interiors</title>
+    <link rel="icon" type="image/png" href="/resources/logo.jpg">
+    <meta name="description" content="Design Luxe — premium window blinds and interior accents. Custom-fit, smart-ready, child-safe.">
+    <!--<link rel="icon" href="favicon.svg">-->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <!--<svg viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="6">
+                <circle cx="50" cy="50" r="44" stroke="#C9AA93"></circle>
+                <path d="M30 65 L30 35 Q50 25 70 35 L70 65" stroke="#1F1F1F"></path>
+                <path d="M40 60 L60 60" stroke="#C9AA93"></path>
+            </svg>-->
+            <img src="resources/logo.jpg" id="dlLogo">
+            <strong>Design Luxe</strong>
+        </div>
+        <nav class="stack">
+            <a class="btn ghost" href="#products">Products</a>
+            <a class="btn ghost" href="#why">Why Design Luxe</a>
+            <a class="btn ghost" href="#faq">FAQ</a>
+            <button class="btn gold" onclick="toggleCart()">Quote ( <span id="count">0</span> )</button>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="card pad">
+            <div class="kicker">Interior Design • Smart Window Treatments</div>
+            <h1>Luxury window blinds made simple.</h1>
+            <p class="lead">Custom-fit, smart‑ready and child‑safe shades tailored to your space. Start with roller, zebra, cellular and sheer options—expand to drapery as you grow.</p>
+            <div class="stack" style="margin-top:16px">
+                <a class="btn gold" href="#products">Shop Blinds</a>
+                <a class="btn" href="#contact">Free Design Consult</a>
+            </div>
+            <div class="stack" style="margin-top:16px">
+                <span class="pill">• Alexa/Google/HomeKit ready</span>
+                <span class="pill">• Cordless & child‑safe</span>
+                <span class="pill">• Blackout & light‑filter fabrics</span>
+            </div>
+        </div>
+        <div class="card pad">
+            <div class="kicker">Quick Quote</div>
+            <p class="lead" style="font-size:16px">Add products to a quote and send to <a href="mailto:support@designluxe.net">support@designluxe.net</a>. Currently, checkout is email‑based.</p>
+            <div id="miniProducts"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section container" id="products">
+    <div class="h2">Shop Blinds</div>
+    <p class="muted">High‑quality, motorized, and custom sizes.</p>
+    <div class="grid cols-3" id="gridProducts"></div>
+</section>
+
+<section class="section container" id="why">
+    <div class="h2">Why Design Luxe</div>
+    <div class="grid cols-3">
+        <div class="feature card pad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M6 8h12M6 12h12M6 16h8" stroke="#C9AA93"/>
+            </svg>
+            <div>
+                <strong>Smart‑Ready</strong>
+                <p class="muted">Works with popular smart home platforms via optional motor kits.</p>
+            </div>
+        </div>
+        <div class="feature card pad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M8 13c1 1 2.5 2 4 2s3-1 4-2" stroke="#C9AA93"/>
+            </svg>
+            <div>
+                <strong>Quiet & Safe</strong>
+                <p class="muted">Cordless operation and low‑noise motors designed for families.</p>
+            </div>
+        </div>
+        <div class="feature card pad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 7h18M3 12h18M3 17h18"></path>
+                <path d="M5 5h14v14H5z" stroke="#C9AA93"/>
+            </svg>
+            <div>
+                <strong>Custom Fit</strong>
+                <p class="muted">Measured to your windows with blackout, light‑filtering, and sheer fabrics.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section container" id="faq">
+    <div class="h2">FAQ</div>
+    <details class="card pad"><summary><strong>Do you install?</strong></summary><p>Yes—optional professional installation is available in select regions. DIY guides included for all orders.</p></details>
+    <details class="card pad"><summary><strong>Do you offer custom sizes?</strong></summary><p>Yes, all our blinds can be tailored to your exact window measurements.</p></details>
+    <details class="card pad"><summary><strong>How does checkout work on GitHub Pages?</strong></summary><p>Add items to your quote, then click “Email Quote”. We’ll confirm pricing, shipping, and schedule.</p></details>
+    <details class="card pad"><summary><strong>Are motors smart‑home compatible?</strong></summary><p>Yes. Options support Alexa, Google, Apple Home, and Matter‑compatible hubs.</p></details>
+    <details class="card pad"><summary><strong>What materials do you use?</strong></summary><p>We use premium fabrics, wood textures, and blackout options for durability.</p></details>
+    <details class="card pad"><summary><strong>How long is delivery?</strong></summary><p>Orders usually arrive within 7–10 business days.</p></details>
+</section>
+
+<section class="section container" id="contact">
+    <div class="h2">Contact</div>
+    <div class="card pad">
+        <p class="muted">Questions? Need a consult? Email <a href="mailto:support@designluxe.net">support@designluxe.net</a> or call 908-297-7648.</p>
+        <a class="btn" href="mailto:support@designluxe.net?subject=Design%20Consult%20Request">Email Us</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <span>© <span id="year"></span> Design Luxe</span>
+        <span class="muted">Made for demonstration. Content & design original — not affiliated with other brands.</span>
+    </div>
+</footer>
+
+<aside id="cart">
+    <div class="hdr">
+        <strong>Quote</strong>
+        <button class="btn" onclick="toggleCart()">Close</button>
+    </div>
+    <div class="body" id="cartItems"></div>
+    <div class="foot">
+        <div class="quote-chip">No payment is processed here. Email your quote to proceed.</div>
+        <button class="btn gold" onclick="emailQuote()">Email Quote</button>
+    </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
