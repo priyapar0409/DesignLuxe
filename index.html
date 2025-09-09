@@ -391,13 +391,14 @@
 
 <script>
     const PRODUCTS = [
-      {id:'roller', name:'Motorized Roller Shade', price:229, img:'blind1.jpg', options:['Blackout','Light‑filter','Textured Linen']},
-      {id:'zebra', name:'Zebra (Dual) Shade', price:259, img:'blind2.jpg', options:['White','Gray','Charcoal']},
-      {id:'cellular', name:'Cellular (Honeycomb) Shade', price:279, img:'blind3.jpg', options:['Single','Double','Blackout']},
-      {id:'sheer', name:'Sheer Shade', price:289, img:'blind4.jpg', options:['Ivory','Sand','Smoke']},
-      {id:'roman', name:'Roman Shade', price:309, img:'blind5.jpg', options:['Cotton','Linen','Velvet']},
-      {id:'drapery', name:'Smart Drapery (Tracks)', price:399, img:'blind6.jpg', options:['Sheer','Blackout','Wave Fold']},
+      {id:'roller', name:'Motorized Roller Shade', price:229, imgs:['blind1.jpg','blind1-2.jpg','blind1-3.jpg'], options:['Blackout','Light‑filter','Textured Linen']},
+      {id:'zebra', name:'Zebra (Dual) Shade', price:259, imgs:['blind2.jpg','blind2-2.jpg','blind2-3.jpg'], options:['White','Gray','Charcoal']},
+      {id:'cellular', name:'Cellular (Honeycomb) Shade', price:279, imgs:['blind3.jpg','blind3-2.jpg','blind3-3.jpg'], options:['Single','Double','Blackout']},
+      {id:'sheer', name:'Sheer Shade', price:289, imgs:['blind4.jpg','blind4-2.jpg','blind4-3.jpg'], options:['Ivory','Sand','Smoke']},
+      {id:'roman', name:'Roman Shade', price:309, imgs:['blind5.jpg','blind5-2.jpg','blind5-3.jpg'], options:['Cotton','Linen','Velvet']},
+      {id:'drapery', name:'Smart Drapery (Tracks)', price:399, imgs:['blind6.jpg','blind6-2.jpg','blind6-3.jpg'], options:['Sheer','Blackout','Wave Fold']},
     ];
+
 
     const cart = JSON.parse(localStorage.getItem('dl_cart')||'[]');
 
@@ -426,15 +427,36 @@
       grid.innerHTML = PRODUCTS.map(p=>`
         <div class="product card pad">
           <div class="img" role="img" aria-label="${p.name}">
-            <img src="${p.img}" alt="${p.name}" class="product-image"/>
+            <img src="${p.imgs[0]}" alt="${p.name}" class="product-image" id="img-${p.id}"/>
+            <div style="display:flex;justify-content:space-between;margin-top:5px;">
+              <button class="btn" onclick="prevImage('${p.id}')">&#10094;</button>
+              <button class="btn" onclick="nextImage('${p.id}')">&#10095;</button>
+            </div>
           </div>
           <div class="title">${p.name}</div>
           <div class="muted">$${p.price} base</div>
           <button class="btn gold" onclick="addToCart('${p.id}')">Add to Quote</button>
         </div>
       `).join('');
+
       const mini = document.getElementById('miniProducts');
       mini.innerHTML = PRODUCTS.slice(0,3).map(p=>`<div class="feature"><div class="pill">${p.name}</div><button class="btn" onclick="addToCart('${p.id}')">Add</button></div>`).join('');
+    }
+
+    const productIndexes = {}; // store current image index per product
+
+    PRODUCTS.forEach(p => productIndexes[p.id] = 0);
+
+    function prevImage(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      productIndexes[id] = (productIndexes[id] - 1 + p.imgs.length) % p.imgs.length;
+      document.getElementById(`img-${id}`).src = p.imgs[productIndexes[id]];
+    }
+
+    function nextImage(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      productIndexes[id] = (productIndexes[id] + 1) % p.imgs.length;
+      document.getElementById(`img-${id}`).src = p.imgs[productIndexes[id]];
     }
 
     function renderCart(){
@@ -459,4 +481,3 @@
 
 </body>
 </html>
-
